@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Cards</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Estilo de la carta */
+        .worker-card {
+            background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .worker-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header de la carta */
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .department-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .name-title {
+            flex-grow: 1;
+        }
+
+        .name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0;
+            color: #fff;
+        }
+
+        .title {
+            color: #8a8a8a;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        /* Arte de fondo */
+        .artwork {
+            position: absolute;
+            top: 0;
+            right: -30px;
+            width: 150px;
+            height: 100%;
+            background-size: cover;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        /* Programas y habilidades */
+        .programs {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .program-logo {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            padding: 3px;
+        }
+
+        /* Descripción */
+        .description {
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin: 15px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Estadísticas */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .energy-cost {
+            display: flex;
+            gap: 5px;
+        }
+
+        .energy-dot {
+            width: 15px;
+            height: 15px;
+            background: #4CAF50;
+            border-radius: 50%;
+        }
+
+        .strength {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        /* Departamentos */
+        .department-management .energy-dot { background: #9C27B0; }
+        .department-producing .energy-dot { background: #2196F3; }
+        .department-design .energy-dot { background: #FF5722; }
+        .department-art .energy-dot { background: #E91E63; }
+        .department-programming .energy-dot { background: #4CAF50; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .worker-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cards-container">
+        <!-- Ejemplo de carta para Programación -->
+        <div class="worker-card department-programming">
+            <div class="artwork" style="background-image: url('tu-imagen.jpg')"></div>
+            <div class="card-header">
+                <img src="programming-icon.svg" class="department-icon" alt="Programación">
+                <div class="name-title">
+                    <h2 class="name">Marc</h2>
+                    <p class="title">Architect of Code</p>
+                </div>
+            </div>
+            
+            <div class="programs">
+                <img src="javascript-logo.png" class="program-logo" alt="JavaScript">
+                <img src="python-logo.png" class="program-logo" alt="Python">
+                <img src="unity-logo.png" class="program-logo" alt="Unity">
+            </div>
+            
+            <p class="description">
+                When played, boosts all programming cards' effectiveness by 30%. 
+                Can deploy automated defense systems against bugs.
+            </p>
+            
+            <div class="stats">
+                <div class="energy-cost">
+                    <div class="energy-dot"></div>
+                    <div class="energy-dot"></div>
+                </div>
+                <div class="strength">8500</div>
+            </div>
+        </div>
+
+        <!-- Añadir más cartas siguiendo el mismo patrón -->
+    </div>
+</body>
+</html>

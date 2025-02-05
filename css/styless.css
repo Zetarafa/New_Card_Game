@@ -1,0 +1,179 @@
+*{
+    border: solid 1.5px white;
+    font-family: "Latin Modern Roman";
+    font-style: italic;
+}
+body {
+    background: url('../images/HG.png') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(2px);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.container p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.container-button {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#button {
+    display: block;
+    width: 200px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.button-label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.cards-containerscroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.scroll-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.scroll-buttons button {
+    pointer-events: all;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 20px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card .header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.card .header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.card .abilities img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.card .description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.card .stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .stats .attribute {
+    text-align: center;
+}
+
+.card .stats .attribute span {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    .container p {
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 250px;
+    }
+
+    .scroll-buttons button {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    .container p {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        width: 200px;
+    }
+
+    .scroll-buttons button {
+        padding: 6px;
+    }
+}

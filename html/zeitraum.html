@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeitraum</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="zeitraum">
+    <div class="container">
+        <h1>In welchem Zeitraum soll das Projekt stattfinden?</h1>       
+        <div class="time-selector">
+            <div class="year-selector">
+                <img src="../images/marble1.png" alt="Sphere_Year" class="sphere">
+                <div class="controls">
+                    <button class="arrow-up" onclick="adjustYear(1)">▲</button>
+                    <span id="year" class="value">2024</span>
+                    <button class="arrow-down" onclick="adjustYear(-1)">▼</button>
+                    <span class="label">Jahre</span>
+                </div>
+            </div>
+
+            <div class="month-selector">
+                <img src="../images/marble2.png" alt="Sphere_Month" class="sphere">
+                <div class="controls">
+                    <button class="arrow-up" onclick="adjustMonth(1)">▲</button>
+                    <span id="month" class="value">1</span>
+                    <button class="arrow-down" onclick="adjustMonth(-1)">▼</button>
+                    <span class="label">Monate</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="alternative-button">
+            <button class="button" onclick="location.href='./datum.html'">DATUM STATTESSEN EINGEBEN</button>
+        </div>
+        <script>
+            function switchToDates() {
+                localStorage.removeItem('selectedYears');
+                localStorage.removeItem('selectedMonths');
+                location.href = './datum.html';
+            }
+        </script>
+        <div id="specific-page">
+            <div class="container-button">
+              <button class="side-button" id="left-button" onclick="location.href='./new_old.html'">ZURÜCK</button>
+              <button class="side-button" id="right-button" onclick="location.href='./gegner.html'">WEITER</button>   
+            </div>
+         </div>
+    </div>
+    <script src="../js/clear-selection.js"></script>
+    <script src="../js/zeitraum.js"></script>
+</body>
+</html>

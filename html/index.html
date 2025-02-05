@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interaktive Projektzusammenstellung</title>
+  <link rel="stylesheet" href="../css/styless.css" />
+  <script>
+    window.addEventListener("load", () => {
+      localStorage.clear();
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Interaktive Projektzusammenstellung</h1>
+    <p>Stelle dein Projekt auf...mit einem Kartendeck!</p>
+  </div>
+  <div class="container-button">
+    <a href="./platform.html" id="button"></a>
+    <span class="button-label">START</span>
+  </div>
+  <div class="cards-containerscroll">
+    <div class="scroll-buttons">
+      <button class="scroll-left" onclick="scrollLeftFunction()">
+        &#9664;
+      </button>
+      <button class="scroll-right" onclick="scrollRight()">&#9654;</button>
+    </div>
+    <!-- Isa -->
+    <div class="card" data-id="8" style="background-image: url('../images/Isa.png')">
+      <div class="header">
+        <img src="designer_icon.png" alt="Designer" />
+        <h2>Isa</h2>
+      </div>
+      <div class="abilities">
+        <img src="../images/jira.png" alt="UI/UX" />
+      </div>
+      <div class="description">
+        <p>
+          The mysterious prince of colors keeps hidden in the dark and closely
+          observes what is about to happen in order to powerfully confront the
+          enemy at the right moment.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          6500<br />
+          <span>CREATIVIDAD</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫<br />
+          <span>ENERGÍA</span>
+        </div>
+      </div>
+    </div>
+    <!-- Tom -->
+    <div class="card" data-id="9" style="background-image: url('../images/Tom.png')">
+      <div class="header">
+        <img src="developer_icon.png" alt="Producer" />
+        <h2>Tom</h2>
+      </div>
+      <div class="abilities">
+        <img src="../images/jira.png" alt="Backend" />
+      </div>
+      <div class="description">
+        <p>
+          Silent Shepherd, guiding Jira tasks, weaving stories in video, and
+          herding teams to the pinnacle of productivity. A generalist, adept
+          in every terrain.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          8000<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Quirin -->
+    <div class="card" data-id="10" style="background-image: url('../images/Quirin.png')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Management" />
+        <h2>Quirin</h2>
+      </div>
+      <div class="abilities">
+        <img src="concept_art_icon.png" alt="Concept Art" />
+      </div>
+      <div class="description">
+        <p></p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          9000<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Laura -->
+    <div class="card" data-id="11" style="background-image: url('../images/Laura.png')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Designer" />
+        <h2>Laura</h2>
+      </div>
+      <div class="abilities">
+        <img src="concept_art_icon.png" alt="Architect of the Illusion Worlds" />
+      </div>
+      <div class="description">
+        <p>
+          This effect is highly efficient against the
+          <span>"Game Design"</span> enemy type.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          8800<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Ronny -->
+    <div class="card" data-id="12" style="background-image: url('../images/Ronny.png')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Management" />
+        <h2>Ronny</h2>
+      </div>
+      <div class="abilities">
+        <img src="concept_art_icon.png" alt="Concept Art" />
+      </div>
+      <div class="description">
+        <p>
+          This extensive experience and the wisdom of the ages make him a
+          formidable force.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          8800<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Jacky -->
+    <div class="card" data-id="13" style="background-image: url('../images/Jacky.jpg')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Art" />
+        <h2>Jacky</h2>
+      </div>
+      <div class="abilities">
+        <img src="concept_art_icon.png" alt="Concept Art" />
+      </div>
+      <div class="description">
+        <p>
+          An empathetic and kind-hearted master archer, she skillfully leads
+          and mentors her art team, while also excelling as a versatile
+          generalist in other domains.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          8800<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Dominic -->
+    <div class="card" data-id="14" style="background-image: url('../images/Dominic.png')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Programmer" />
+        <h2>Dominic</h2>
+      </div>
+      <div class="abilities">
+        <img src="../images/concept_art_icon.png" alt="Concept Art" />
+      </div>
+      <div class="description">
+        <p>Sonic Cyber Mage.</p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          7500<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Isa -->
+    <div class="card" data-id="8" style="background-image: url('../images/Isa.png')">
+      <div class="header">
+        <img src="designer_icon.png" alt="Designer" />
+        <h2>Isa</h2>
+      </div>
+      <div class="abilities">
+        <img src="../images/jira.png" alt="UI/UX" />
+      </div>
+      <div class="description">
+        <p>
+          The mysterious prince of colors keeps hidden in the dark and closely
+          observes what is about to happen in order to powerfully confront the
+          enemy at the right moment.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          6500<br />
+          <span>CREATIVIDAD</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫<br />
+          <span>ENERGÍA</span>
+        </div>
+      </div>
+    </div>
+    <!-- Tom -->
+    <div class="card" data-id="9" style="background-image: url('../images/Tom.png')">
+      <div class="header">
+        <img src="developer_icon.png" alt="Producer" />
+        <h2>Tom</h2>
+      </div>
+      <div class="abilities">
+        <img src="../images/jira.png" alt="Backend" />
+      </div>
+      <div class="description">
+        <p>
+          Silent Shepherd, guiding Jira tasks, weaving stories in video, and
+          herding teams to the pinnacle of productivity. A generalist, adept
+          in every terrain.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          8000<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Quirin -->
+    <div class="card" data-id="10" style="background-image: url('../images/Quirin.png')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Management" />
+        <h2>Quirin</h2>
+      </div>
+      <div class="abilities">
+        <img src="concept_art_icon.png" alt="Concept Art" />
+      </div>
+      <div class="description">
+        <p></p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          9000<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Laura -->
+    <div class="card" data-id="11" style="background-image: url('../images/Laura.png')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Designer" />
+        <h2>Laura</h2>
+      </div>
+      <div class="abilities">
+        <img src="concept_art_icon.png" alt="Architect of the Illusion Worlds" />
+      </div>
+      <div class="description">
+        <p>
+          This effect is highly efficient against the
+          <span>"Game Design"</span> enemy type.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          8800<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Ronny -->
+    <div class="card" data-id="12" style="background-image: url('../images/Ronny.png')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Management" />
+        <h2>Ronny</h2>
+      </div>
+      <div class="abilities">
+        <img src="concept_art_icon.png" alt="Concept Art" />
+      </div>
+      <div class="description">
+        <p>
+          This extensive experience and the wisdom of the ages make him a
+          formidable force.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          8800<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Jacky -->
+    <div class="card" data-id="13" style="background-image: url('../images/Jacky.jpg')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Art" />
+        <h2>Jacky</h2>
+      </div>
+      <div class="abilities">
+        <img src="concept_art_icon.png" alt="Concept Art" />
+      </div>
+      <div class="description">
+        <p>
+          An empathetic and kind-hearted master archer, she skillfully leads
+          and mentors her art team, while also excelling as a versatile
+          generalist in other domains.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          8800<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+    <!-- Dominic -->
+    <div class="card" data-id="14" style="background-image: url('../images/Dominic.png')">
+      <div class="header">
+        <img src="artist_icon.png" alt="Programmer" />
+        <h2>Dominic</h2>
+      </div>
+      <div class="abilities">
+        <img src="../images/concept_art_icon.png" alt="Concept Art" />
+      </div>
+      <div class="description">
+        <p>Sonic Cyber Mage.</p>
+      </div>
+      <div class="stats">
+        <div class="attribute">
+          7500<br />
+          <span>STRENGHT</span>
+        </div>
+        <div class="attribute">
+          ⚫⚫⚫⚫⚫<br />
+          <span>ENERGY</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/scroll.js"></script>
+  <script src="../js/clear-selection.js"></script>
+</body>
+
+</html>

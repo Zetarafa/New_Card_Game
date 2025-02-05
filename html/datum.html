@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datum</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="datum">
+    <div class="container">
+        <h1>In welchem Zeitraum soll das Projekt stattfinden?</h1>  
+    </div>     
+    <div class="time-selector">
+        <label for="start-date" class="date-label">von</label>
+        <div class="date-selector">
+            <img src="../images/marble1.png" alt="Start Date Sphere" class="sphere">
+            <input type="date" id="start-date" class="date-input">            
+        </div>
+        <label for="end-date" class="date-label">bis</label>
+        <div class="date-selector">
+            <img src="../images/marble2.png" alt="End Date Sphere" class="sphere">
+            <input type="date" id="end-date" class="date-input"> 
+        </div>
+    </div>
+    <div class="alternative-button">
+            <button class="button" onclick="location.href='./zeitraum.html'">ALLGEMEINEN ZEITRAUM STATTDESSEN ANGEBEN</button>
+    </div>
+    <script>
+        function switchToGeneral() {
+            localStorage.removeItem('selectedStartDate');
+            localStorage.removeItem('selectedEndDate');
+            location.href = './zeitraum.html';
+        }
+    </script>
+    <div id="specific-page">
+            <div class="container-button">
+              <button class="side-button" id="right-button" onclick="handleWeiter()">WEITER</button>   
+            </div>
+    </div>
+    <script src="../js/clear-selection.js"></script>
+    <script src="../js/datum.js"></script>
+</body>
+</html>

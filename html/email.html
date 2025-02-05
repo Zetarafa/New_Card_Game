@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Zum Schluss noch einige letzte Angaben ...</h1>
+    </div>
+    <div class="final-page">
+        <div class="form-container">
+            <div class="form-group" id="name-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Name">
+            </div>
+            <div class="form-group" id="email-group">
+              <label for="email">E-Mail Adresse</label>
+              <input type="email" id="email" placeholder="E-Mail-Adresse">
+            </div>
+            <textarea id="message" placeholder="Hier ist noch Platz für eine letzte Nachricht ..."></textarea>
+        </div>          
+    </div>      
+    <div class="container-button">
+        <button class="left-button" id="left-button" onclick="location.href='./chooseprojekt.html'">ZURÜCK</button>
+        <a href="./ende.html" id="button"></a>
+        <span class="button-label">SENDEN</span> 
+            
+    </div>
+    <script src="../js/card.js"></script>
+    <script src="../js/choosecard.js"></script>
+    <script src="../js/project.js"></script>
+
+    
+    <script>
+        // Recuperar datos seleccionados
+        const selectedCardsData = JSON.parse(localStorage.getItem('selectedCardsData'));
+    
+        // Mostrar los datos seleccionados en un resumen
+        const summary = document.getElementById('summary');
+        summary.innerHTML = `
+          <h3>Datos seleccionados:</h3>
+          <p>Platform: ${JSON.stringify(selectedCardsData.platform)}</p>
+          <p>Gegner: ${JSON.stringify(selectedCardsData.gegner)}</p>
+          <p>Proyecto: ${JSON.stringify(selectedCardsData.projekt)}</p>
+          <p>Meses: ${selectedCardsData.selectedMonths}</p>
+          <p>Años: ${selectedCardsData.selectedYears}</p>
+        `;
+    
+        // Pasar los datos seleccionados al formulario como un campo oculto
+        document.getElementById('selected-data').value = JSON.stringify(selectedCardsData);
+      </script>
+
+
+
+</body>
+</html>
