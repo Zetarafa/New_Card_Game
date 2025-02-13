@@ -63,8 +63,40 @@ cards.forEach((card) => {
     localStorage.setItem('selectedCards', JSON.stringify(selectedCards)); // Guardar selección
     updateHandContainer(); // Actualizar la mano
   });
+
+  // Eventos de arrastrar y soltar
+  card.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text/plain', cardId);
+    card.style.transform = 'scale(0.8)'; // Reducir tamaño al arrastrar
+  });
+
+  card.addEventListener('dragend', () => {
+    card.style.transform = 'scale(0.5)'; // Restaurar tamaño al soltar
+  });
+});
+
+// Eventos de soltar en el contenedor de la mano
+handContainer.addEventListener('dragover', (e) => {
+  e.preventDefault(); // Permitir soltar
+});
+
+handContainer.addEventListener('drop', (e) => {
+  e.preventDefault();
+  const cardId = e.dataTransfer.getData('text/plain');
+  const card = document.querySelector(`.card[data-id="${cardId}"]`);
+
+  if (card && !selectedCards.some(c => c.id === cardId)) {
+    const cardData = {
+      id: cardId,
+      backgroundImage: card.style.backgroundImage,
+      content: card.innerHTML,
+    };
+    selectedCards.push(cardData);
+    localStorage.setItem('selectedCards', JSON.stringify(selectedCards)); // Guardar selección
+    card.classList.add('selected-developers');
+    updateHandContainer(); // Actualizar la mano
+  }
 });
 
 // Inicializar el contenedor de la mano al cargar la página
 updateHandContainer();
-

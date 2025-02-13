@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New_Old</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/styless.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Soll ein neues Projekt gestartet oder ein existierendes fortgesetzt werden?</h1>
-    </div> 
-    <div id="specific-oldnew"> 
-        <div class="cards-container">
-          <div class="card-item">
-            <div class="card" data-id="1" style="background-image: url('../images/mixing_cards_1.png');"></div>
-            <div class="card-title">Neues Projekt</div>
-          </div>
-          <div class="card-item">
-            <div class="card" data-id="2" style="background-image: url('../images/mixing_cards_2.png');"></div>
-            <div class="card-title">Bestehendes Projekt</div>
-          </div>
-        </div>
+      <h1>Soll ein neues Projekt gestartet oder ein existierendes fortgesetzt werden?</h1>
     </div>
-    <div id="specific-page">
-        <div class="container-button">
-            <button class="side-button" id="left-button" onclick="location.href='./platform.html'">ZURÜCK</button>
-            <button class="side-button" id="right-button" onclick="location.href='./zeitraum.html'">WEITER</button>   
+    <div class="cards-container">
+      <div
+        class="card"
+        data-id="1"
+        style="background-image: url('../images/mixing_cards_1.png')"
+      >
+        <div class="header">
+          <h2>Neues Projekt</h2>
         </div>
+      </div>
+      <div
+        class="card"
+        data-id="2"
+        style="background-image: url('../images/mixing_cards_2.png')"
+      >
+        <div class="header">
+          <h2>Bestehendes Projekt</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container-button">
+      <button class="left-button" onclick="location.href='./platform.html'">ZURÜCK</button>
+      <button class="right-button" onclick="location.href='./zeitraum.html'"> WEITER</button>
     </div>
     <script src="../js/newold.js" type="module"></script>
-</body>
+  </body>
 </html>

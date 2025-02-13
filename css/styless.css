@@ -1,12 +1,12 @@
 *{
-    border: solid 1.5px white;
+     /*border: solid 1.5px white;*/
     font-family: "Latin Modern Roman";
     font-style: italic;
 }
 body {
     background: url('../images/HG.png') no-repeat center center fixed;
     background-size: cover;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(4px);
     margin: 0;
     padding: 0;
     display: flex;
@@ -22,42 +22,86 @@ body {
 }
 
 .container h1 {
-    font-size: 2.5rem;
+    font-size: 3.0rem;
     margin-bottom: 10px;
+    color: white;
 }
 
 .container p {
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 1.8rem;
+    color: white;
 }
 
+/*------------Button container---------------*/
 .container-button {
     position: relative;
-    margin-bottom: 20px;
-}
+    margin: 0;
+    padding: 1px;
+    background-image: url('../images/button_line.png'), url('../images/button_line.png'); 
+    background-position: calc(50% - 250px) center, calc(50% + 250px) center;
+    background-repeat: no-repeat, no-repeat;
+    border-radius: 20px;
+    display: flex; 
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 850px;
+    height: 165px;
+  }
+  #button { 
+    padding: 0;
+    margin-bottom: 0px;
+    width: 157px;
+    height: 157px;
+    background: url('../images/button.png') no-repeat center; 
+    background-size: cover;
+    transform: scale(0.6);
+    cursor: pointer;
+    border: none;
+    
+  }
+  .button-label {
+    padding:0;
+    font-size: 15px; 
+    color: gold;
+    
+  }
+  #button:hover {
+    transform: scale(0.5);
+  }
+  .left-button {
+    cursor: pointer;
+    background-color: transparent;
+    color: gold;
+    border: none;
+    font-size: 30px;
+    transition: transform 0.3s ease;
+    position: absolute; 
+    top: 50px; 
+    left: 10px;
+  }
+  
+  .left-button:hover {
+    transform: scale(1.1);
+  }
+  .right-button {
+    cursor: pointer;
+    background-color: transparent;
+    color: gold;
+    border: none;
+    font-size: 30px;
+    transition: transform 0.3s ease;
+    position: absolute; 
+    top: 50px; 
+    right: 10px;
+  }
+  .right-button:hover {
+    transform: scale(1.1);
+  }
 
-#button {
-    display: block;
-    width: 200px;
-    height: 50px;
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    line-height: 50px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 0 auto;
-}
-
-.button-label {
-    display: block;
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #333;
-}
-
-.cards-containerscroll {
+.cards-container {
     display: flex;
+    justify-content: space-around;
     overflow-x: auto;
     padding: 20px;
     width: 90%;
@@ -66,29 +110,13 @@ body {
     position: relative;
 }
 
-.scroll-buttons {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    pointer-events: none;
-}
 
-.scroll-buttons button {
-    pointer-events: all;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-}
+
 
 .card {
     flex: 0 0 auto;
-    width: 300px;
+    width: 150px;
+    height: 250px;
     margin-right: 20px;
     background-size: cover;
     background-position: center;
@@ -98,7 +126,66 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
+.card:hover:not(.selected-projekt, .selected-developers, .selected-gegner, .selected-platform) {
+    transform: translateY(-5px);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+  /*--------------Chooseprojekt--------------*/
+.selected-developers {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: scale(0.7);
+    opacity: 0.5;
+    flex-wrap: wrap;
+  }
+  .selected-platform {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: scale(0.85);
+    opacity: 0.2;
+  }
+  .selected-projekt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  .selected-projekt2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .selected-gegner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  .selected-gegner:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  .selected-platform:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  .selected-developers:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  /*-----------------------------------------*/
 
 .card .header {
     display: flex;
@@ -114,7 +201,7 @@ body {
 
 .card .header h2 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 .card .abilities img {
@@ -124,7 +211,7 @@ body {
 }
 
 .card .description {
-    font-size: 0.9rem;
+    font-size: 0.9em;
     margin-bottom: 15px;
 }
 
@@ -138,9 +225,186 @@ body {
 }
 
 .card .stats .attribute span {
-    font-size: 0.8rem;
+    font-size: 0.8em;
     color: #ccc;
 }
+
+/*-----------------Card developers Flip-------------------*/
+.flip-card-inner {
+    position: relative;
+    width: 160px;
+    height: 230px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+  }
+  .card:hover .flip-card-inner {
+    transform: scale(1.2);
+    transform: rotateY(180deg);
+    
+  }
+  .card-front, .card-back {
+    position: absolute;
+    width: 160px;
+    height: 230px;
+    background-size: cover;
+    background-position: center; 
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  .card-back {
+    width: 160px;
+    height: 230px;
+    color: black;
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+  }
+  .card-back p {
+    display: flex;
+    margin-top: 100px;
+    height: 20px;
+    align-items:center;
+    padding: 3px;
+    font-size: 0.95em;
+    color: gold;
+    
+  }
+  .flip-card-inner .card-front .header {
+    display: flex;
+    height: 20px;
+    align-items:center;
+    padding: 3px;
+    font-size: 0.7em;
+    
+  }
+  .flip-card-inner .card-front .header img {
+    width: 20px;
+    height: 20px;
+  }
+  .flip-card-inner .card-front .header h2 {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    color: wheat;
+  }
+  .flip-card-inner .card-front .abilities {
+    display: absolute;
+    right: 3px;
+    line-height: 0.8;
+  }
+  .flip-card-inner .card-front .abilities img {
+    width: 30px;
+    height: 25px;
+    border-radius: 50%; 
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    
+  }
+  .flip-card-inner .description {
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 0.5em;
+    line-height: 0.8;
+    
+    margin-bottom: 2px;
+  }
+  .flip-card-inner .description span {
+    font-weight: bold;
+    color: gold; 
+  }
+  .flip-card-inner .stats {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px;
+    font-size: 0.8em;
+  }
+  .flip-card-inner .stats .attribute {
+    text-align: center;
+    font-size: 0.7em;
+  }
+  .flip-card-inner .stats .attribute span {
+    display: block;
+    font-size: 0.7em;
+    color: #bbb;
+  }
+
+/*--------------Hand-container----------*/
+.hand-container {
+    margin-top: 20px;
+    max-width: 100%;
+  }
+  .hand {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow-x: auto; 
+    padding-left: 100px;
+  
+  }
+  .hand .card {
+    transform: scale(-10deg); /* Simulates cards in hand */
+    transition: transform 0.3s;
+    transform: scale(0.5);
+  }
+  .hand .card:nth-child(even) {
+    transform: rotate(20deg); /* Alternate tilt for a natural effect */
+    transform: scale(0.5);
+  }
+  .hand .card:hover {
+    transform: none;
+    transform: scale(0.6);
+    box-shadow: none;
+    transform: rotateY(0deg);
+  }
+  .hand .card:hover .flip-card-inner{
+    transform: none;
+    transform: scale(0.6);
+    box-shadow: none;
+    transform: rotateY(0deg);
+  }
+
+/*----------------------E-mail---------------------------------------*/
+.email-container {
+  width: 100%;
+  height: 61vh;
+  text-align: center;
+  background: url('../images/textfeld.png') no-repeat center center fixed;
+  background-size: 70% 50%;
+  display: grid;
+  grid-template-columns: 100px 100px; /* Adjust the proportions of the columns */
+  grid-template-rows: 65px 200px; /* Adjust row heights */
+  grid-template-areas: 
+    "name email"
+    "message message";
+  justify-content: center;
+  align-items: center; 
+}
+#message {
+  grid-area: message; /* Position in the 'message' area */
+  resize: none;
+}
+
+@media (max-width: 768px) {
+  .email-container {
+    background-size: 80% 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .email-container {
+    background: none;
+    
+  }
+
+}
+  
 
 @media (max-width: 768px) {
     .container h1 {
@@ -152,28 +416,36 @@ body {
     }
 
     .card {
-        width: 250px;
+        width: 150px;
+        height: 220px;
     }
 
-    .scroll-buttons button {
-        padding: 8px;
-    }
+    
+    
 }
 
 @media (max-width: 480px) {
     .container h1 {
-        font-size: 1.5rem;
+        font-size: 1.5em;
     }
 
     .container p {
-        font-size: 0.9rem;
+        font-size: 0.6em;
     }
 
     .card {
-        width: 200px;
+        width: 100px;
+        height: 150px;
     }
 
-    .scroll-buttons button {
-        padding: 6px;
-    }
+    #button { 
+        
+        width: 40px;
+        height: 40px;
+        
+        transform: scale(0.9);
+       
+        
+      }
+   
 }
