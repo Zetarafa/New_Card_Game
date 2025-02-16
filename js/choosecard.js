@@ -1,39 +1,39 @@
-// Inicializar las cartas seleccionadas desde localStorage
-const selectedCards = JSON.parse(localStorage.getItem('selectedCards')) || [];
+// Initialize selected cards from localStorage
+/*const selectedCards = JSON.parse(localStorage.getItem('selectedCards')) || [];
 
-// Seleccionar elementos relevantes
+// Select relevant elements
 const cards = document.querySelectorAll('.card');
-const handContainer = document.querySelector('.hand');
+const handContainer = document.querySelector('.hand-container');
 
-// Función para actualizar el contenedor de "mano"
+// Function to update the hand container
 function updateHandContainer() {
-  handContainer.innerHTML = ''; // Limpiar el contenedor de la mano
+  handContainer.innerHTML = ''; // Clear the hand container
 
   selectedCards.forEach((cardData) => {
-    // Crear un elemento de carta basado en los datos
+    // Create a card element based on the data
     const cardElement = document.createElement('div');
     cardElement.className = 'card';
     cardElement.dataset.id = cardData.id;
     cardElement.style.backgroundImage = cardData.backgroundImage;
     cardElement.innerHTML = cardData.content;
 
-    // Añadir evento para quitar la carta de la mano
+    // Add event to remove the card from the hand
     cardElement.addEventListener('click', () => {
-      // Remover la carta de la mano y restaurar en el contenedor principal
+      // Remove the card from the hand and restore it in the main container
       const index = selectedCards.findIndex(c => c.id === cardData.id);
       if (index > -1) {
-        selectedCards.splice(index, 1); // Eliminar de la lista de seleccionadas
-        localStorage.setItem('selectedCards', JSON.stringify(selectedCards)); // Guardar cambios
+        selectedCards.splice(index, 1); // Remove from the selected list
+        localStorage.setItem('selectedCards', JSON.stringify(selectedCards)); // Save changes
         document.querySelector(`.card[data-id="${cardData.id}"]`).classList.remove('selected-developers');
-        updateHandContainer(); // Actualizar la mano
+        updateHandContainer(); // Update the hand
       }
     });
 
-    handContainer.appendChild(cardElement); // Agregar la carta a la mano
+    handContainer.appendChild(cardElement); // Add the card to the hand
   });
 }
 
-// Manejo de selección de cartas en el contenedor principal
+// Handle card selection in the main container
 cards.forEach((card) => {
   const cardId = card.dataset.id;
 
@@ -43,41 +43,41 @@ cards.forEach((card) => {
     content: card.innerHTML,
   };
 
-  // Marcar cartas previamente seleccionadas
+  // Mark previously selected cards
   if (selectedCards.some(c => c.id === cardId)) {
     card.classList.add('selected-developers');
   }
 
-  // Evento para seleccionar/deseleccionar cartas
+  // Event to select/deselect cards
   card.addEventListener('click', () => {
     const index = selectedCards.findIndex(c => c.id === cardId);
     if (index > -1) {
-      // Deseleccionar carta
+      // Deselect card
       selectedCards.splice(index, 1);
       card.classList.remove('selected-developers');
     } else {
-      // Seleccionar carta
+      // Select card
       selectedCards.push(cardData);
       card.classList.add('selected-developers');
     }
-    localStorage.setItem('selectedCards', JSON.stringify(selectedCards)); // Guardar selección
-    updateHandContainer(); // Actualizar la mano
+    localStorage.setItem('selectedCards', JSON.stringify(selectedCards)); // Save selection
+    updateHandContainer(); // Update the hand
   });
 
-  // Eventos de arrastrar y soltar
+  // Drag and drop events
   card.addEventListener('dragstart', (e) => {
     e.dataTransfer.setData('text/plain', cardId);
-    card.style.transform = 'scale(0.8)'; // Reducir tamaño al arrastrar
+    card.style.transform = 'scale(0.8)'; // Scale down while dragging
   });
 
   card.addEventListener('dragend', () => {
-    card.style.transform = 'scale(0.5)'; // Restaurar tamaño al soltar
+    card.style.transform = 'scale(0.5)'; // Restore size after dropping
   });
 });
 
-// Eventos de soltar en el contenedor de la mano
+// Drop events in the hand container
 handContainer.addEventListener('dragover', (e) => {
-  e.preventDefault(); // Permitir soltar
+  e.preventDefault(); // Allow dropping
 });
 
 handContainer.addEventListener('drop', (e) => {
@@ -92,11 +92,69 @@ handContainer.addEventListener('drop', (e) => {
       content: card.innerHTML,
     };
     selectedCards.push(cardData);
-    localStorage.setItem('selectedCards', JSON.stringify(selectedCards)); // Guardar selección
+    localStorage.setItem('selectedCards', JSON.stringify(selectedCards)); // Save selection
     card.classList.add('selected-developers');
-    updateHandContainer(); // Actualizar la mano
+    updateHandContainer(); // Update the hand
   }
 });
 
-// Inicializar el contenedor de la mano al cargar la página
-updateHandContainer();
+// Initialize the hand container on page load
+updateHandContainer();*/
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.card');
+  const selectedCardsContainer = document.getElementById('selected-cards');
+  const cardsContainer = document.querySelector('.cards-container');
+  let selectedCards = JSON.parse(localStorage.getItem('selectedCards')) || [];
+
+  // Restore selected cards on page load
+  cards.forEach(card => {
+      if (selectedCards.includes(card.dataset.id)) {
+          selectCard(card, false);
+      }
+      card.addEventListener('click', function() {
+          if (this.classList.contains('selected')) {
+              deselectCard(this);
+          } else {
+              selectCard(this, true);
+          }
+      });
+  });
+
+  function selectCard(card, animate) {
+      card.classList.add('selected');
+      selectedCards.push(card.dataset.id);
+      selectedCardsContainer.appendChild(card);
+      if (animate) card.style.transition = 'transform 0.5s ease, right 0.5s ease';
+      updateCardPositions();
+      localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
+  }
+
+  function deselectCard(card) {
+      card.classList.remove('selected');
+      selectedCards = selectedCards.filter(id => id !== card.dataset.id);
+      cardsContainer.appendChild(card);
+      card.style.transition = 'transform 0.5s ease, left 0.5s ease';
+      card.style.transform = 'none';
+      localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
+  }
+
+  function updateCardPositions() {
+    const selectedCardsList = document.querySelectorAll('#selected-cards .card');
+    selectedCardsList.forEach((card, index) => {
+        const angle = (index - (selectedCardsList.length - 1) / 2) * 10;
+
+        // Asegurar el punto de rotación en la esquina inferior derecha
+        card.style.transformOrigin = "bottom right";
+
+        // Ajustar la transformación manualmente
+        card.style.transform = `translate(-60%, -50%) rotate(${angle}deg) scale(0.5)`;
+
+        // Ajustar la posición
+        card.style.right = `${index * 20}px`;
+    });
+}
+
+
+
+});

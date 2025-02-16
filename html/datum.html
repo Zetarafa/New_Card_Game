@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datum</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styless.css">
 </head>
 <body class="datum">
     <div class="container">
@@ -22,9 +22,6 @@
             <input type="date" id="end-date" class="date-input"> 
         </div>
     </div>
-    <div class="alternative-button">
-            <button class="button" onclick="location.href='./zeitraum.html'">ALLGEMEINEN ZEITRAUM STATTDESSEN ANGEBEN</button>
-    </div>
     <script>
         function switchToGeneral() {
             localStorage.removeItem('selectedStartDate');
@@ -32,11 +29,15 @@
             location.href = './zeitraum.html';
         }
     </script>
-    <div id="specific-page">
-            <div class="container-button">
-              <button class="side-button" id="right-button" onclick="handleWeiter()">WEITER</button>   
-            </div>
+     <div class="alternative-button">
+        <button class="button" onclick="location.href='./zeitraum.html'">ALLGEMEINEN ZEITRAUM STATTDESSEN ANGEBEN</button>
     </div>
+    <div class="container-button">
+        <button class="right-button" onclick="handleWeiter()">
+            WEITER
+        </button>
+    </div>
+    
     <script src="../js/clear-selection.js"></script>
     <script src="../js/datum.js"></script>
 </body>

@@ -12,15 +12,17 @@
     </div>
     <div class="email-container">
         
-            
-              <label for="name">Name</label>
-              <input type="text" id="name" placeholder="Name">
-            
-           
-              <label for="email">E-Mail Adresse</label>
-              <input type="email" id="email" placeholder="E-Mail-Adresse">
-           
-            <textarea id="message" placeholder="Hier ist noch Platz für eine letzte Nachricht ..."></textarea>
+      <form id="contact-form">
+        <div class="form-group" style="grid-area: name;">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+        </div>
+        <div class="form-group" style="grid-area: email;">
+            <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required>
+        </div>
+        <div class="form-group" style="grid-area: message;">
+            <textarea id="message" name="message" placeholder="Hier ist noch Platz für eine letzte Nachricht ..."></textarea>
+        </div>        
+     </form>
               
     </div>      
     <div class="container-button">
