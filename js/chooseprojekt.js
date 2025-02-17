@@ -7,14 +7,14 @@ const subtitle = document.createElement('h2');
 subtitle.classList.add('project-subtitle');
 selectedContainer.appendChild(subtitle);
 
-function updateSubtitle() {
+/*function updateSubtitle() {
     if (selectedCards.length > 0) {
         const selectedId = selectedCards[0].id; 
         subtitle.textContent = selectedId === "1" ? 'Neues Projekt' : 'Bestehendes Projekt';
     } else {
         subtitle.textContent = ''; 
     }
-}
+}*/
 
 selectedCards.forEach(cardData => {
     const card = document.createElement('div');
@@ -24,7 +24,7 @@ selectedCards.forEach(cardData => {
     card.style.transform = 'scale(0.8)';
     card.innerHTML = cardData.content;
 
-    updateSubtitle();
+    // updateSubtitle();
 
     card.addEventListener('click', () => {
         const index = selectedCards.findIndex(c => c.id === cardData.id);
@@ -69,11 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Developers
 
-// Gets the selected cards from localStorage
+// Obtener las cartas seleccionadas desde localStorage
 const selectedCards1 = JSON.parse(localStorage.getItem('selectedCards')) || [];
 
-// Renders the selected cards on the page
+// Contenedor donde se mostrarán las cartas
 const selectedContainer1 = document.querySelector('.selected-developers');
+
 selectedCards1.forEach(cardData => {
     const card = document.createElement('div');
     card.classList.add('card', 'scaled-card');
@@ -82,7 +83,7 @@ selectedCards1.forEach(cardData => {
     card.style.transform = 'scale(0.8)';
     card.innerHTML = cardData.content;
 
-    // Allows you to delete the selected card when you click
+    // Permitir la eliminación de la carta seleccionada al hacer clic
     card.addEventListener('click', () => {
         const index = selectedCards1.findIndex(c => c.id === cardData.id);
         if (index > -1) {
@@ -91,8 +92,10 @@ selectedCards1.forEach(cardData => {
             card.remove();
         }
     });
+
     selectedContainer1.appendChild(card);
 });
+
 
 //Platform
 

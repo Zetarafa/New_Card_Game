@@ -101,7 +101,7 @@ handContainer.addEventListener('drop', (e) => {
 // Initialize the hand container on page load
 updateHandContainer();*/
 
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
   const cards = document.querySelectorAll('.card');
   const selectedCardsContainer = document.getElementById('selected-cards');
   const cardsContainer = document.querySelector('.cards-container');
@@ -128,6 +128,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (animate) card.style.transition = 'transform 0.5s ease, right 0.5s ease';
       updateCardPositions();
       localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
+
+
+      
+   
+   
+
+
   }
 
   function deselectCard(card) {
@@ -157,4 +164,71 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+});*/
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.card');
+  const selectedCardsContainer = document.getElementById('selected-cards');
+  const cardsContainer = document.querySelector('.cards-container');
+  let selectedCards = JSON.parse(localStorage.getItem('selectedCards')) || [];
+
+  // Restaurar cartas seleccionadas al cargar la página
+  cards.forEach(card => {
+      const cardData = {
+          id: card.dataset.id,
+          backgroundImage: card.style.backgroundImage,
+          content: card.innerHTML
+      };
+
+      if (selectedCards.some(c => c.id === cardData.id)) {
+          selectCard(card, false);
+      }
+
+      card.addEventListener('click', function() {
+          if (this.classList.contains('selected')) {
+              deselectCard(this);
+          } else {
+              selectCard(this, true);
+          }
+      });
+  });
+
+  function selectCard(card, animate) {
+      card.classList.add('selected');
+
+      const cardData = {
+          id: card.dataset.id,
+          backgroundImage: card.style.backgroundImage,
+          content: card.innerHTML
+      };
+
+      selectedCards.push(cardData);
+      selectedCardsContainer.appendChild(card);
+
+      if (animate) card.style.transition = 'transform 0.5s ease, right 0.5s ease';
+      updateCardPositions();
+      localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
+  }
+
+  function deselectCard(card) {
+      card.classList.remove('selected');
+      selectedCards = selectedCards.filter(c => c.id !== card.dataset.id);
+      cardsContainer.appendChild(card);
+      card.style.transition = 'transform 0.5s ease, left 0.5s ease';
+      card.style.transform = 'none';
+      localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
+  }
+
+  function updateCardPositions() {
+    const selectedCardsList = document.querySelectorAll('#selected-cards .card');
+    selectedCardsList.forEach((card, index) => {
+        const angle = (index - (selectedCardsList.length - 1) / 2) * 10;
+
+        card.style.transformOrigin = "bottom right";
+        card.style.transform = `translate(-60%, -50%) rotate(${angle}deg) scale(0.5)`;
+        card.style.right = `${index * 20}px`;
+    });
+  }
 });
+
+

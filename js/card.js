@@ -1,4 +1,4 @@
-
+/*
 
 const selectedCards = JSON.parse(localStorage.getItem('selectedCards')) || [];
 
@@ -27,5 +27,5 @@ document.querySelectorAll('.card').forEach(card => {
         localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
     });
 });
-
+*/
 
