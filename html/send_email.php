@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers = "From: $email\r\nReply-To: $email\r\n";
 
     // Dirección de correo de la empresa
-    $to = "kontakt@deinefirma.com";
+    $to = "zegarafa@hotmail.com";
 
     if (mail($to, $subject, $email_content, $headers)) {
         echo "Ihre Anfrage wurde erfolgreich gesendet!";
