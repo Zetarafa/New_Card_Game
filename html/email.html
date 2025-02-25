@@ -11,43 +11,22 @@
         <h1>Zum Schluss noch einige letzte Angaben ...</h1>
     </div>
     <div class="email-container">
-        
-      <form id="contact-form">
-        <div class="form-group" style="grid-area: name;">
-            <input type="text" id="name" name="name" placeholder="Name" required>
-        </div>
-        <div class="form-group" style="grid-area: email;">
-            <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required>
-        </div>
-        <div class="form-group" style="grid-area: message;">
-            <textarea id="message" name="message" placeholder="Hier ist noch Platz für eine letzte Nachricht ..."></textarea>
-        </div>        
-     </form>
-              
+        <form id="contact-form">
+            <div class="form-group" style="grid-area: name;">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group" style="grid-area: email;">
+                <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required>
+            </div>
+            <div class="form-group" style="grid-area: message;">
+                <textarea id="message" name="message" placeholder="Hier ist noch Platz für eine letzte Nachricht ..."></textarea>
+            </div>
+            <div class="container-button-email">
+                <button class="left-button" onclick="location.href='./chooseprojekt.html'">ZURÜCK</button>
+                <button type="submit" id="button">SENDEN</button> 
+            </div>        
+        </form>
     </div>      
-    <div class="container-button">
-        <button class="left-button" onclick="location.href='./chooseprojekt.html'">ZURÜCK</button>
-        <a href="./ende.html" id="button"></a>
-        <span class="button-label">SENDEN</span> 
-    </div>
-    <script src="../js/card.js"></script>
-    <script src="../js/choosecard.js"></script>
-    <script src="../js/project.js"></script>    
-    <script>
-        // Recover selected data
-        const selectedCardsData = JSON.parse(localStorage.getItem('selectedCardsData'));    
-        // Display selected data in a summary
-        const summary = document.getElementById('summary');
-        summary.innerHTML = `
-          <h3>Selected data:</h3>
-          <p>Platform: ${JSON.stringify(selectedCardsData.platform)}</p>
-          <p>Gegner: ${JSON.stringify(selectedCardsData.gegner)}</p>
-          <p>Proyecto: ${JSON.stringify(selectedCardsData.projekt)}</p>
-          <p>Meses: ${selectedCardsData.selectedMonths}</p>
-          <p>Años: ${selectedCardsData.selectedYears}</p>
-        `;    
-        // Pass the selected data to the form as a hidden field
-        document.getElementById('selected-data').value = JSON.stringify(selectedCardsData);
-    </script>
+    <script src="../js/sendForm.js"></script>
 </body>
 </html>
