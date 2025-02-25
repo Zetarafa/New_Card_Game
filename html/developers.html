@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Select Professionals</title>
-    <link rel="stylesheet" href="../css/styless.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
 </head>
 
 <body>
@@ -13,7 +13,7 @@
         <h1>Wähle die Karten für dein Deck aus!</h1>
     </div>
     <div class="cards-container">
-        
+
         <!-- Isa -->
         <div class="card" data-id="13" draggable="true">
             <div class="flip-card-inner">
@@ -261,9 +261,11 @@
             WEITER
         </button>
     </div>
-    <div id="selected-cards"></div>
-    
-    <script src="../js/choosecard.js"></script>
+    <div class="summary">
+        <div class="time"></div>
+        <div class="selected-cards"></div>  
+    </div>   
+    <script src="../js/worker.js"></script>
 </body>
 
 </html>

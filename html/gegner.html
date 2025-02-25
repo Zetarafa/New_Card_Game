@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gegner</title>
-    <link rel="stylesheet" href="../css/styless.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -12,7 +12,7 @@
     </div>
     <div class="cards-container">
             <!-- Bug -->
-            <div class="card" data-id="8" style="background-image: url('../images/Bug\ Fixing.png');">
+            <div class="card" data-id="8" style="background-image: url('../images/Bug_Fixing.png');">
             </div>
             <!-- Doku -->
             <div class="card" data-id="9" style="background-image: url('../images/Dokumentation.png');">
@@ -21,7 +21,7 @@
             <div class="card" data-id="10" style="background-image: url('../images/Foliage.png');">
             </div>
             <!-- Soun -->
-            <div class="card" data-id="11" style="background-image: url('../images/Sound\ Effekte.png');">
+            <div class="card" data-id="11" style="background-image: url('../images/SoundEffekte.png');">
             </div>
             <!-- Spri -->
             <div class="card" data-id="12" style="background-image: url('../images/Sprint-Planunug.png');">
@@ -30,7 +30,11 @@
     <div class="container-button">
             <button class="left-button" onclick="location.href='./zeitraum.html'">ZURÜCK</button>
             <button class="right-button" onclick="location.href='./developers.html'">WEITER</button>   
-    </div>    
-    <script src="../js/gegner.js"></script>
+    </div>
+    <div class="summary">
+        <div class="time"></div>
+        <div class="selected-cards"></div>  
+    </div>   
+    <script src="../js/choosecards.js"></script>
 </body>
 </html>

@@ -7,14 +7,6 @@ const subtitle = document.createElement('h2');
 subtitle.classList.add('project-subtitle');
 selectedContainer.appendChild(subtitle);
 
-/*function updateSubtitle() {
-    if (selectedCards.length > 0) {
-        const selectedId = selectedCards[0].id; 
-        subtitle.textContent = selectedId === "1" ? 'Neues Projekt' : 'Bestehendes Projekt';
-    } else {
-        subtitle.textContent = ''; 
-    }
-}*/
 
 selectedCards.forEach(cardData => {
     const card = document.createElement('div');
@@ -24,7 +16,6 @@ selectedCards.forEach(cardData => {
     card.style.transform = 'scale(0.8)';
     card.innerHTML = cardData.content;
 
-    // updateSubtitle();
 
     card.addEventListener('click', () => {
         const index = selectedCards.findIndex(c => c.id === cardData.id);

@@ -1,5 +1,3 @@
-
-
 let year = 0; // initial year
 let month = 0;   // initial month
 
