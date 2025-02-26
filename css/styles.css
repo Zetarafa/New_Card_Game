@@ -16,6 +16,10 @@ body {
   height: 100vh;
 }
 
+label {
+  color: white;
+}
+
 .container {
   text-align: center;
   margin-top: -10%;

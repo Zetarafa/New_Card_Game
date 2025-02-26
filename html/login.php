@@ -1,17 +1,23 @@
 <?php
 session_start();
 
-// Definir usuario y contraseña correctos (puedes cambiarlos o usar una base de datos)
-$usuario_valido = "admin";
-$password_valida = password_hash("1234", PASSWORD_DEFAULT);
-  // Cámbiala por una más segura
+// Define correct username and password (hash of "1234")
+$benutzername_gueltig = "admin";
+$hash_gespeichert = '$2a$12$6RpsoNBQX1eMp5f.tBgwc.thfg0IXeQ3B.8f/N1C6IPSV2OTcCepq'; // Hash von "1234"
 
-// Comprobar si los datos del formulario son correctos
-if ($_POST['usuario'] === $usuario_valido && $_POST['password'] === $password_valida) {
-    $_SESSION['autenticado'] = true;
-    header("Location: protegido.php"); // Redirige a la página protegida
-    exit();
+if (isset($_POST['benutzername']) && isset($_POST['passwort'])) {
+    $benutzername = $_POST['benutzername'];
+    $passwort = $_POST['passwort'];
+
+    // Verify username and password with password_verify()
+    if ($benutzername === $benutzername_gueltig && password_verify($passwort, $hash_gespeichert)) {
+        $_SESSION['authentifiziert'] = true;
+        header("Location: protegido.php"); // Redirect to protected page
+        exit();
+    } else {
+        echo "Benutzername oder Passwort ist falsch.";
+    }
 } else {
-    echo "Usuario o contraseña incorrectos.";
+    echo "Bitte fülle alle Felder aus.";
 }
 ?>
