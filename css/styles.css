@@ -462,42 +462,46 @@ label {
 /*----------------------E-mail---------------------------------------*/
 .email-container {
   width: 100%;
-  height: 61vh;
+  height: 30rem;
   text-align: center;
-  background: url("../images/textfeld.png") no-repeat center center fixed;
-  background-size: 70% 50%;
+  background: url("../images/textfeld.png") no-repeat center center / cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #contact-form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 20rem 10rem;
+  grid-template-rows: 2rem 18         rem;
   grid-template-areas:
     "name email"
     "message message";
-  grid-gap: 13%; /* Relative space between elements */
-  width: 40%;
-  max-width: 650px;
-  margin-top: -3%;
-  position: relative; 
+  grid-gap: 18%; /* Relative space between elements */
+  width: 80%;
+  max-width: 750px;
+  position: relative;
+  margin: 0 auto;
+  top: 6rem;
+  transform: translateY(-50%);
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%; 
+.form-group input {
   border: none;
   border-radius: 4px;
-  font-size: 1.3rem;
-  color: black;
-  background: rgb(170, 172, 173);
+  font-size: 1.5rem;
+  background: rgb(255, 255, 255, 0.1);
+
 }
 
 .form-group textarea {
-  resize: none;
-  height: 12rem; 
+  width: 80%; 
+  border: none;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  background: rgb(255, 255, 255, 0.1);
+  height: 15rem; 
 }
 
 /* Style scrollbar WebKit (Chrome, Safari, Edge) */
